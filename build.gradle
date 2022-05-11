@@ -3,6 +3,10 @@ plugins {
     id 'application'
 }
 
+run {
+    standardInput = System.in
+}
+
 group 'hexlet.code'
 version '1.0-SNAPSHOT'
 
@@ -36,3 +40,4 @@ jar {
 compileJava {
     options.release = 17
 }
+
