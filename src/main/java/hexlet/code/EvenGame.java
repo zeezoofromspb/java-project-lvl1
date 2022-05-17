@@ -14,8 +14,10 @@ public class EvenGame {
         System.out.println("Answer 'yes' if number even, otherwise answer 'no'.");
         String answer = "";
 
-        for (var i = 1; i <= 3; i++) {
-            int number = generateRandomInt(99999);
+        for (var i = 0; i <= 2; i++) {
+            final int upperRandomRange = 99999;
+            int number = generateRandomInt(upperRandomRange);
+
             System.out.print("Question: " + number
                     + "\nYour answer: ");
             String evenness = number % 2 == 0 ? "yes" : "no";
@@ -33,7 +35,7 @@ public class EvenGame {
                 break;
             }
 
-            if (i == 3) {
+            if (i == 2) {
                 System.out.println("Congratulations, " + name + "!");
             }
         }
