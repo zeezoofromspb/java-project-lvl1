@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EvenGame {
+public class EvenTemp {
     public static int generateRandomInt(int upperRange) {
         Random random = new Random();
         return random.nextInt(upperRange);

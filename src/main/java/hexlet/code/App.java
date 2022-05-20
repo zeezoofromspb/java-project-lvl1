@@ -7,6 +7,7 @@ public class App {
         System.out.print("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
+                + "3 - Calculator\n"
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner sc = new Scanner(System.in);
@@ -20,7 +21,7 @@ public class App {
                 Cli.getName();
                 break;
             case (2):
-                EvenGame.getEven();
+                Engine.playGame();
                 break;
             default:
                 break;
