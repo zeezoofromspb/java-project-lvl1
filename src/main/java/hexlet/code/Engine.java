@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.EvenGame;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Engine {
     public static int generateRandomInt(int upperRange) {
@@ -21,12 +22,21 @@ public class Engine {
                 System.out.println(game.getTaskMessage());
             }
 
+            System.out.print("Question: " + game.getQuestion()
+                    + "\nYour answer: ");
 
+            String answer = "";
+            Scanner sc = new Scanner(System.in);
+            if (sc.hasNextLine()) {
+                answer = sc.nextLine();
+            }
 
-            if (game.getDesicion()) {
+            boolean decision = game.getResult().equals(answer);
+
+            if (decision) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + game.getAnswer() + "' is wrong answer ;(. Correct answer was '" + game.getResult() + "'."
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + game.getResult() + "'."
                         + "\nLet's try again, "  + playerName + "!");
                 break;
             }
@@ -35,6 +45,5 @@ public class Engine {
                 System.out.println("Congratulations, " + playerName + "!");
             }
         }
-
     }
 }
