@@ -1,7 +1,8 @@
 package hexlet.code;
 
 public interface GameType {
-    String getStartMessage();
-    String getAnswer();
-
+    String getTaskMessage();
+    String getQuestion();
+    String getResult();
+    GameType playGame();
 }

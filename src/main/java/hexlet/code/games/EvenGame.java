@@ -1,18 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.GameType;
 
-public class EvenGame {
-
+public class EvenGame implements GameType {
     private String question;
     private String result;
 
-    EvenGame(String question, String result) {
-        this.question = question;
-        this.result = result;
+    public EvenGame(String pQuestion, String pResult) {
+        this.question = pQuestion;
+        this.result = pResult;
     }
+
     public String getResult() {
-        return this.result;
+        return result;
     }
 
     public String getQuestion() {
@@ -23,14 +24,14 @@ public class EvenGame {
         return "Answer 'yes' if number even, otherwise answer 'no'.";
     }
 
-    public static EvenGame playEvenGame() {
+    public EvenGame playGame() {
 
         final int upperRandomRange = 99999;
         int number = Engine.generateRandomInt(upperRandomRange);
 
-        String result = number % 2 == 0 ? "yes" : "no";
-        String question = String.valueOf(number);
+        String pResult = number % 2 == 0 ? "yes" : "no";
+        String pQuestion = String.valueOf(number);
 
-        return new EvenGame(question, result);
+        return new EvenGame(pQuestion, pResult);
     }
 }

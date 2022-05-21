@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.EvenGame;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,12 +9,11 @@ public class Engine {
         return random.nextInt(upperRange);
     }
 
-    public static void playGame() {
+    public static void openGame(GameType game) {
         String playerName = Cli.getName();
 
         for (var i = 0; i <= 2; i++) {
-
-            var game = EvenGame.playEvenGame();
+            game = game.playGame();
 
             if (i == 0) {
                 System.out.println(game.getTaskMessage());

@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.EvenGame;
+
 import java.util.Scanner;
 
 public class App {
@@ -21,7 +23,7 @@ public class App {
                 Cli.getName();
                 break;
             case (2):
-                Engine.playGame();
+                Engine.openGame(new EvenGame("", ""));
                 break;
             default:
                 break;
