@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.GameType;
+import hexlet.code.Engine;
 
 public class CalculatorGame implements GameType {
     private String question;
