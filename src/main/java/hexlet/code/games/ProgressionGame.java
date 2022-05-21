@@ -21,7 +21,7 @@ public class ProgressionGame implements GameType {
     }
 
     public String getTaskMessage() {
-        return "What is the result of the expression?";
+        return "What number is missing in the progression?";
     }
 
     public ProgressionGame playGame() {
