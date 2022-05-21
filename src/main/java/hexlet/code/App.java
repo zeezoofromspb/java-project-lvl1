@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.CalculatorGame;
 import hexlet.code.games.EvenGame;
 
 import java.util.Scanner;
@@ -13,17 +14,20 @@ public class App {
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner sc = new Scanner(System.in);
-        int choice = 0;
-        if (sc.hasNextInt()) {
-            choice = sc.nextInt();
+        String choice = "0";
+        if (sc.hasNextLine()) {
+            choice = sc.nextLine();
         }
 
         switch (choice) {
-            case (1):
+            case "1":
                 Cli.getName();
                 break;
-            case (2):
+            case "2":
                 Engine.openGame(new EvenGame("", ""));
+                break;
+            case "3":
+                Engine.openGame(new CalculatorGame("", ""));
                 break;
             default:
                 break;

@@ -29,8 +29,9 @@ public class EvenGame implements GameType {
         final int upperRandomRange = 99999;
         int number = Engine.generateRandomInt(upperRandomRange);
 
-        String pResult = number % 2 == 0 ? "yes" : "no";
         String pQuestion = String.valueOf(number);
+        String pResult = number % 2 == 0 ? "yes" : "no";
+
 
         return new EvenGame(pQuestion, pResult);
     }
