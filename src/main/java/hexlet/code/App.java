@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.CalculatorGame;
 import hexlet.code.games.GCDGame;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class App {
                 + "2 - Even\n"
                 + "3 - Calculator\n"
                 + "4 - GCD\n"
+                + "5 - Progression\n"
                 + "0 - Exit\n"
                 + "Your choice: ");
         Scanner sc = new Scanner(System.in);
@@ -33,6 +35,9 @@ public class App {
                 break;
             case "4":
                 Engine.openGame(new GCDGame("", ""));
+                break;
+            case "5":
+                Engine.openGame(new ProgressionGame("", ""));
                 break;
             default:
                 break;
