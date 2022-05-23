@@ -10,7 +10,7 @@ public class CalculatorGame {
         String[] result = new String[roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 100;
+            final int upperRandomRange = 33;
             int number1 = Engine.generateRandomInt(upperRandomRange);
             int number2 = Engine.generateRandomInt(upperRandomRange);
 

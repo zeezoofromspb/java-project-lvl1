@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Engine {
     public static int generateRandomInt(int upperRange) {
@@ -17,8 +16,7 @@ public class Engine {
             System.out.print("Question: " + question[i]
                     + "\nYour answer: ");
 
-            Scanner sc = new Scanner(System.in);
-            String answer = sc.nextLine();
+            String answer = Cli.getInput();
 
             boolean isCorrectAnswer = result[i].equals(answer);
 

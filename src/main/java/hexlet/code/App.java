@@ -5,7 +5,6 @@ import hexlet.code.games.CalculatorGame;
 import hexlet.code.games.GCDGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -20,8 +19,7 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
 
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
+        String choice = Cli.getInput();
 
         switch (choice) {
             case "1" -> Cli.getName();

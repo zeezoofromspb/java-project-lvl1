@@ -2,12 +2,18 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+
 public class Cli {
-    public static String getName() {
-        System.out.print("\nWelcome to the Brain Games!"
-                + "\nMay I have your name? ");
+    public static String getInput() {
         Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
+        return sc.nextLine();
+    }
+    public static String getName() {
+        System.out.print("""
+
+                Welcome to the Brain Games!
+                May I have your name?\s""");
+        String name = getInput();
         System.out.println("Hello, " + name + "!");
         return name;
     }

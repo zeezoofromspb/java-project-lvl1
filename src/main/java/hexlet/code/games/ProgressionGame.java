@@ -10,8 +10,8 @@ public class ProgressionGame {
         String[] result = new String[roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 20;
-            int progressionBase = Engine.generateRandomInt(upperRandomRange);
+            final int upperRandomRange = 33;
+            int progressionFirstNum = Engine.generateRandomInt(upperRandomRange);
             int progressionAdd = Engine.generateRandomInt(upperRandomRange);
             progressionAdd = progressionAdd == 0 ? 1 : progressionAdd;
 
@@ -19,7 +19,7 @@ public class ProgressionGame {
             String[] progression = new String[progressionLength];
 
             for (var j = 0; j < progressionLength; j++) {
-                progression[j] = Integer.toString(progressionBase + j * progressionAdd);
+                progression[j] = Integer.toString(progressionFirstNum + j * progressionAdd);
             }
 
             int hiddenNumberIndex = Engine.generateRandomInt(progressionLength);
