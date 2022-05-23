@@ -10,18 +10,18 @@ public class PrimeGame {
         String[] result = new String[roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 300;
+            final int upperRandomRange = 33;
             int number = Engine.generateRandomInt(upperRandomRange);
             number = number == 0 ? 1 : number;
 
             boolean isPrime = true;
+            int halfNumber = number / 2;
 
-            for (var j = 2; j <= (number == 2 ? number : number / 2); j++) {
+            int j = 2;
+            while (isPrime & j <= halfNumber) {
                 //it is enough to check only first half of all possible numbers
-                if (number % j == 0) {
-                    isPrime = false;
-                    break;
-                }
+                isPrime = number % j != 0;
+                j++;
             }
 
             question[i] = String.valueOf(number);

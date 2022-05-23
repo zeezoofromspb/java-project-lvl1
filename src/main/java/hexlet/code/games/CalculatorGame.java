@@ -21,17 +21,11 @@ public class CalculatorGame {
             question[i] = number1 + " " + randomMathOperator + " " + number2;
 
             switch (randomMathOperator) {
-                case "+":
-                    result[i] = Integer.toString(number1 + number2);
-                    break;
-                case "-":
-                    result[i] = Integer.toString(number1 - number2);
-                    break;
-                case "*":
-                    result[i] = Integer.toString(number1 * number2);
-                    break;
-                default:
-                    break;
+                case "+" -> result[i] = Integer.toString(number1 + number2);
+                case "-" -> result[i] = Integer.toString(number1 - number2);
+                case "*" -> result[i] = Integer.toString(number1 * number2);
+                default -> {
+                }
             }
         }
         Engine.openGame(taskMessage, question, result);
