@@ -9,31 +9,23 @@ public class Engine {
         return random.nextInt(upperRange);
     }
 
-    public static void openGame(GameType game) {
+    public static void openGame(String taskMessage, String[] question, String[] result) {
         String playerName = Cli.getName();
-
-        for (var i = 0; i <= 2; i++) {
-            game = game.playGame();
-
-            if (i == 0) {
-                System.out.println(game.getTaskMessage());
-            }
-
-            System.out.print("Question: " + game.getQuestion()
+        System.out.println(taskMessage);
+        final int roundsCount = question.length;
+        for (var i = 0; i < roundsCount; i++) {
+            System.out.print("Question: " + question[i]
                     + "\nYour answer: ");
 
-            String answer = "";
             Scanner sc = new Scanner(System.in);
-            if (sc.hasNextLine()) {
-                answer = sc.nextLine();
-            }
+            String answer = sc.nextLine();
 
-            boolean decision = game.getResult().equals(answer);
+            boolean isCorrectAnswer = result[i].equals(answer);
 
-            if (decision) {
+            if (isCorrectAnswer) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + game.getResult() + "'."
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result[i] + "'."
                         + "\nLet's try again, "  + playerName + "!");
                 break;
             }

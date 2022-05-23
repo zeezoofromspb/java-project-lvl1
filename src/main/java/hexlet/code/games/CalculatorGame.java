@@ -1,56 +1,39 @@
 package hexlet.code.games;
 
-import hexlet.code.GameType;
 import hexlet.code.Engine;
 
-public class CalculatorGame implements GameType {
-    private String question;
-    private String result;
+public class CalculatorGame {
+    public static void playGame() {
+        String taskMessage = "What is the result of the expression?";
+        final int roundsCount = 3;
+        String[] question = new String[roundsCount];
+        String[] result = new String[roundsCount];
 
-    public CalculatorGame(String pQuestion, String pResult) {
-        this.question = pQuestion;
-        this.result = pResult;
-    }
+        for (var i = 0; i < roundsCount; i++) {
+            final int upperRandomRange = 100;
+            int number1 = Engine.generateRandomInt(upperRandomRange);
+            int number2 = Engine.generateRandomInt(upperRandomRange);
 
-    public String getResult() {
-        return result;
-    }
+            final int upperMathOperatorIndexRange = 3;
+            String[] mathOperators = {"+", "-", "*"};
+            int mathOperatorIndex = Engine.generateRandomInt(upperMathOperatorIndexRange);
+            var randomMathOperator = mathOperators[mathOperatorIndex];
+            question[i] = number1 + " " + randomMathOperator + " " + number2;
 
-    public String getQuestion() {
-        return this.question;
-    }
-
-    public String getTaskMessage() {
-        return "What is the result of the expression?";
-    }
-
-    public CalculatorGame playGame() {
-
-        final int upperRandomRange = 100;
-        int number1 = Engine.generateRandomInt(upperRandomRange);
-        int number2 = Engine.generateRandomInt(upperRandomRange);
-
-        final int upperMathOperatorIndexRange = 3;
-        String[] mathOperators = {"+", "-", "*"};
-        int mathOperatorIndex = Engine.generateRandomInt(upperMathOperatorIndexRange);
-        var randomMathOperator = mathOperators[mathOperatorIndex];
-        String pQuestion = number1 + " " + randomMathOperator + " " + number2;
-
-        int pResult = 0;
-        switch (randomMathOperator) {
-            case "+":
-                pResult = number1 + number2;
-                break;
-            case "-" :
-                pResult = number1 - number2;
-                break;
-            case "*" :
-                pResult = number1 * number2;
-                break;
-            default:
-                break;
+            switch (randomMathOperator) {
+                case "+":
+                    result[i] = Integer.toString(number1 + number2);
+                    break;
+                case "-":
+                    result[i] = Integer.toString(number1 - number2);
+                    break;
+                case "*":
+                    result[i] = Integer.toString(number1 * number2);
+                    break;
+                default:
+                    break;
+            }
         }
-
-        return new CalculatorGame(pQuestion, Integer.toString(pResult));
+        Engine.openGame(taskMessage, question, result);
     }
 }

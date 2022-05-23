@@ -1,47 +1,32 @@
 package hexlet.code.games;
 
-import hexlet.code.GameType;
 import hexlet.code.Engine;
 
-public class PrimeGame implements GameType {
-    private String question;
-    private String result;
+public class PrimeGame {
+    public static void playGame() {
+        String taskMessage = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        final int roundsCount = 3;
+        String[] question = new String[roundsCount];
+        String[] result = new String[roundsCount];
 
-    public PrimeGame(String pQuestion, String pResult) {
-        this.question = pQuestion;
-        this.result = pResult;
-    }
+        for (var i = 0; i < roundsCount; i++) {
+            final int upperRandomRange = 300;
+            int number = Engine.generateRandomInt(upperRandomRange);
+            number = number == 0 ? 1 : number;
 
-    public String getResult() {
-        return result;
-    }
+            boolean isPrime = true;
 
-    public String getQuestion() {
-        return this.question;
-    }
-
-    public String getTaskMessage() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
-
-    public PrimeGame playGame() {
-
-        final int upperRandomRange = 300;
-
-        int number = Engine.generateRandomInt(upperRandomRange);
-        number = number == 0 ? 1 : number;
-        boolean isPrime = true;
-
-        for (var i = 2; i <= (number == 2 ? number : number / 2); i++) {
-            if (number % i == 0) {
-                isPrime = false;
-                break;
+            for (var j = 2; j <= (number == 2 ? number : number / 2); j++) {
+                //it is enough to check only first half of all possible numbers
+                if (number % j == 0) {
+                    isPrime = false;
+                    break;
+                }
             }
+
+            question[i] = String.valueOf(number);
+            result[i] = isPrime ? "yes" : "no";
         }
-
-        String pQuestion = String.valueOf(number);
-        String pResult = isPrime ? "yes" : "no";
-
-        return new PrimeGame(pQuestion, pResult);
+        Engine.openGame(taskMessage, question, result);
     }
 }

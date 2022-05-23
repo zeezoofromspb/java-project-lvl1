@@ -1,38 +1,21 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.GameType;
 
-public class EvenGame implements GameType {
-    private String question;
-    private String result;
+public class EvenGame {
+    public static void playGame() {
+        String taskMessage = "Answer 'yes' if number even, otherwise answer 'no'.";
+        final int roundsCount = 3;
+        String[] question = new String[roundsCount];
+        String[] result = new String[roundsCount];
 
-    public EvenGame(String pQuestion, String pResult) {
-        this.question = pQuestion;
-        this.result = pResult;
-    }
+        for (var i = 0; i < roundsCount; i++) {
+            final int upperRandomRange = 9999;
+            int number = Engine.generateRandomInt(upperRandomRange);
 
-    public String getResult() {
-        return result;
-    }
-
-    public String getQuestion() {
-        return this.question;
-    }
-
-    public String getTaskMessage() {
-        return "Answer 'yes' if number even, otherwise answer 'no'.";
-    }
-
-    public EvenGame playGame() {
-
-        final int upperRandomRange = 99999;
-        int number = Engine.generateRandomInt(upperRandomRange);
-
-        String pQuestion = String.valueOf(number);
-        String pResult = number % 2 == 0 ? "yes" : "no";
-
-
-        return new EvenGame(pQuestion, pResult);
+            question[i] = String.valueOf(number);
+            result[i] = number % 2 == 0 ? "yes" : "no";
+        }
+        Engine.openGame(taskMessage, question, result);
     }
 }
