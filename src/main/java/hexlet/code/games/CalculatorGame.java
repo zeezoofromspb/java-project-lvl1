@@ -20,13 +20,12 @@ public class CalculatorGame {
             var randomMathOperator = mathOperators[mathOperatorIndex];
             question[i] = number1 + " " + randomMathOperator + " " + number2;
 
-            switch (randomMathOperator) {
-                case "+" -> result[i] = Integer.toString(number1 + number2);
-                case "-" -> result[i] = Integer.toString(number1 - number2);
-                case "*" -> result[i] = Integer.toString(number1 * number2);
-                default -> {
-                }
-            }
+            result[i] = switch (randomMathOperator) {
+                case "+" -> Integer.toString(number1 + number2);
+                case "-" -> Integer.toString(number1 - number2);
+                case "*" -> Integer.toString(number1 * number2);
+                default -> "";
+            };
         }
         Engine.openGame(taskMessage, question, result);
     }
