@@ -13,4 +13,4 @@
 
 5 - Prog - https://asciinema.org/a/496669
 
-6 - Prime - https://asciinema.org/a/496670
+6 - Prime - https://asciinema.org/a/496700

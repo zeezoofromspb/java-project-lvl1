@@ -15,13 +15,16 @@ public class PrimeGame {
             number = number == 0 ? 1 : number;
 
             boolean isPrime = true;
-            int halfNumber = number / 2;
+            int sqrtOfNumber = (int) Math.sqrt(number);
 
-            int j = 2;
-            while (isPrime & j <= halfNumber) {
-                //it is enough to check only first half of all possible numbers
-                isPrime = number % j != 0;
-                j++;
+            if (number == 1) {
+                isPrime = false;
+            } else {
+                int j = 2;
+                while (isPrime & j <= sqrtOfNumber) {
+                    isPrime = number % j != 0;
+                    j++;
+                }
             }
 
             question[i] = String.valueOf(number);
