@@ -24,10 +24,10 @@ public class PrimeGame {
     public static boolean isPrime(int number) {
         int sqrtOfNumber = (int) Math.sqrt(number);
         for (var i = 2; i <= sqrtOfNumber; i++) {
-            if (number == 1 || number % i == 0) {
+            if (number % i == 0) {
                 return false;
             }
         }
-        return true;
+        return number != 1;
     }
 }
