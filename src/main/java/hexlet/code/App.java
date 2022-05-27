@@ -18,9 +18,10 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
-
+        makeSelection();
+    }
+    public static void makeSelection() {
         String choice = Utils.getInput();
-
         switch (choice) {
             case "1" -> Cli.getName();
             case "2" -> EvenGame.playGame();
@@ -28,7 +29,11 @@ public class App {
             case "4" -> GCDGame.playGame();
             case "5" -> ProgressionGame.playGame();
             case "6" -> PrimeGame.playGame();
-            default -> System.exit(0);
+            case "0" -> System.exit(0);
+            default -> {
+                System.out.print("Incorrect input, please try again: ");
+                makeSelection();
+            }
         }
     }
 }

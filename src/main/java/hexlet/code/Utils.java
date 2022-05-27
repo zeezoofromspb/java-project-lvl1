@@ -21,4 +21,8 @@ public class Utils {
         Random random = new Random();
         return random.nextInt(upperRange);
     }
+    public static int generateRandomNoZeroInt(int upperRange) {
+        int randomNumber = generateRandomInt(upperRange);
+        return randomNumber == 0 ? 1 : randomNumber;
+    }
 }

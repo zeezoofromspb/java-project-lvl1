@@ -12,10 +12,8 @@ public class GCDGame {
         String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            int randomNumber1 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
-            int randomNumber2 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
-            randomNumber1 = randomNumber1 == 0 ? 1 : randomNumber1;
-            randomNumber2 = randomNumber2 == 0 ? 1 : randomNumber2;
+            int randomNumber1 = Utils.generateRandomNoZeroInt(UPPER_RANDOM_RANGE);
+            int randomNumber2 = Utils.generateRandomNoZeroInt(UPPER_RANDOM_RANGE);
 
             gameContent[0][i] = randomNumber1 + " " + randomNumber2;
             gameContent[1][i] = Integer.toString(gcd(randomNumber1, randomNumber2));

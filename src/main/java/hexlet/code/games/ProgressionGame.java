@@ -13,8 +13,7 @@ public class ProgressionGame {
 
         for (var i = 0; i < roundsCount; i++) {
             int progressionStart = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
-            int progressionStep = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
-            progressionStep = progressionStep == 0 ? 1 : progressionStep;
+            int progressionStep = Utils.generateRandomNoZeroInt(UPPER_RANDOM_RANGE);
 
             final int progressionLength = 10;
             String[] progression = generateProgression(progressionLength, progressionStart, progressionStep);

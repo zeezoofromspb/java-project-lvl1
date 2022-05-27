@@ -12,8 +12,7 @@ public class PrimeGame {
         String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            int randomNumber = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
-            randomNumber = randomNumber == 0 ? 1 : randomNumber;
+            int randomNumber = Utils.generateRandomNoZeroInt(UPPER_RANDOM_RANGE);
 
             gameContent[0][i] = String.valueOf(randomNumber);
             gameContent[1][i] = isPrime(randomNumber) ? "yes" : "no";
