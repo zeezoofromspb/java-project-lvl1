@@ -1,35 +1,39 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class ProgressionGame {
+    static final String TASK_MESSAGE = "What number is missing in the progression?";
+    static final int UPPER_RANDOM_RANGE = 33;
+    static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
     public static void playGame() {
-        String taskMessage = "What number is missing in the progression?";
-        final int roundsCount = 3;
-        String[] question = new String[roundsCount];
-        String[] result = new String[roundsCount];
+        final int roundsCount = Engine.getRoundsCount();
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 33;
-            int progressionFirstNum = Engine.generateRandomInt(upperRandomRange);
-            int progressionAdd = Engine.generateRandomInt(upperRandomRange);
-            progressionAdd = progressionAdd == 0 ? 1 : progressionAdd;
+            int progressionStart = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
+            int progressionStep = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
+            progressionStep = progressionStep == 0 ? 1 : progressionStep;
 
             final int progressionLength = 10;
-            String[] progression = new String[progressionLength];
+            String[] progression = generateProgression(progressionLength, progressionStart, progressionStep);
 
-            for (var j = 0; j < progressionLength; j++) {
-                progression[j] = Integer.toString(progressionFirstNum + j * progressionAdd);
-            }
-
-            int hiddenNumberIndex = Engine.generateRandomInt(progressionLength);
+            int hiddenNumberIndex = Utils.generateRandomInt(progressionLength);
             String hiddenNumber = progression[hiddenNumberIndex];
             progression[hiddenNumberIndex] = "..";
 
-            question[i] = String.join(" ", progression);
-            result[i] = hiddenNumber;
+            gameContent[0][i] = String.join(" ", progression);
+            gameContent[1][i] = hiddenNumber;
         }
 
-        Engine.openGame(taskMessage, question, result);
+        Engine.openGame(TASK_MESSAGE, gameContent);
+    }
+    public static String[] generateProgression(int progressionLength, int progressionStart, int progressionStep) {
+        String[] progression = new String[progressionLength];
+        for (var i = 0; i < progressionLength; i++) {
+            progression[i] = Integer.toString(progressionStart + i * progressionStep);
+        }
+        return progression;
     }
 }

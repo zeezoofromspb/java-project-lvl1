@@ -1,21 +1,25 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class EvenGame {
+    static final String TASK_MESSAGE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    static final int UPPER_RANDOM_RANGE = 100;
+    static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
+
+
     public static void playGame() {
-        String taskMessage = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        final int roundsCount = 3;
-        String[] question = new String[roundsCount];
-        String[] result = new String[roundsCount];
+        final int roundsCount = Engine.getRoundsCount();
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 100;
-            int number = Engine.generateRandomInt(upperRandomRange);
+            int randomNumber = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
 
-            question[i] = String.valueOf(number);
-            result[i] = number % 2 == 0 ? "yes" : "no";
+            gameContent[0][i] = String.valueOf(randomNumber);
+            gameContent[1][i] = randomNumber % 2 == 0 ? "yes" : "no";
         }
-        Engine.openGame(taskMessage, question, result);
+
+        Engine.openGame(TASK_MESSAGE, gameContent);
     }
 }

@@ -1,32 +1,37 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class CalculatorGame {
+    static final String TASK_MESSAGE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    static final int UPPER_RANDOM_RANGE = 100;
+    static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
+    static final String[] MATH_OPERATORS = new String[]{"+", "-", "*"};
+
     public static void playGame() {
-        String taskMessage = "What is the result of the expression?";
-        final int roundsCount = 3;
-        String[] question = new String[roundsCount];
-        String[] result = new String[roundsCount];
+
+        final int roundsCount = Engine.getRoundsCount();
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 33;
-            int number1 = Engine.generateRandomInt(upperRandomRange);
-            int number2 = Engine.generateRandomInt(upperRandomRange);
 
-            final int upperMathOperatorIndexRange = 3;
-            String[] mathOperators = {"+", "-", "*"};
-            int mathOperatorIndex = Engine.generateRandomInt(upperMathOperatorIndexRange);
-            var randomMathOperator = mathOperators[mathOperatorIndex];
-            question[i] = number1 + " " + randomMathOperator + " " + number2;
+            int randomNumber1 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
+            int randomNumber2 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
 
-            result[i] = switch (randomMathOperator) {
-                case "+" -> Integer.toString(number1 + number2);
-                case "-" -> Integer.toString(number1 - number2);
-                case "*" -> Integer.toString(number1 * number2);
-                default -> "";
+            final int mathOperatorIndexUpperRange = 3;
+            int mathOperatorIndex = Utils.generateRandomInt(mathOperatorIndexUpperRange);
+            var randomMathOperator = MATH_OPERATORS[mathOperatorIndex];
+
+            gameContent[0][i] = randomNumber1 + " " + randomMathOperator + " " + randomNumber2;
+
+            gameContent[1][i] = switch (randomMathOperator) {
+                case "+" -> Integer.toString(randomNumber1 + randomNumber2);
+                case "-" -> Integer.toString(randomNumber1 - randomNumber2);
+                case "*" -> Integer.toString(randomNumber1 * randomNumber2);
+                default -> throw new IllegalArgumentException("Error: invalid math operator. How did you made it?");
             };
         }
-        Engine.openGame(taskMessage, question, result);
+        Engine.openGame(TASK_MESSAGE, gameContent);
     }
 }

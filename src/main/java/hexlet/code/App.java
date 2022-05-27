@@ -19,7 +19,7 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
 
-        String choice = Cli.getInput();
+        String choice = Utils.getInput();
 
         switch (choice) {
             case "1" -> Cli.getName();
@@ -28,8 +28,7 @@ public class App {
             case "4" -> GCDGame.playGame();
             case "5" -> ProgressionGame.playGame();
             case "6" -> PrimeGame.playGame();
-            default -> {
-            }
+            default -> System.exit(0);
         }
     }
 }

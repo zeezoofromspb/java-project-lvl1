@@ -1,36 +1,32 @@
 package hexlet.code;
 
-import java.util.Random;
-
 public class Engine {
-    public static int generateRandomInt(int upperRange) {
-        Random random = new Random();
-        return random.nextInt(upperRange);
-    }
+    private static final int ROUNDSCOUNT = 3;
 
-    public static void openGame(String taskMessage, String[] question, String[] result) {
-        String playerName = Cli.getName();
+    public static int getRoundsCount() {
+        return ROUNDSCOUNT;
+    }
+    public static void openGame(String taskMessage, String[][] gameContent) {
+        String playerName = Utils.getName();
         System.out.println(taskMessage);
-        final int roundsCount = question.length;
-        for (var i = 0; i < roundsCount; i++) {
-            System.out.print("Question: " + question[i]
+        for (var i = 0; i < ROUNDSCOUNT; i++) {
+            System.out.print("Question: " + gameContent[0][i]
                     + "\nYour answer: ");
 
-            String answer = Cli.getInput();
+            String answer = Utils.getInput();
 
-            boolean isCorrectAnswer = result[i].equals(answer);
+            boolean isCorrectAnswer = gameContent[1][i].equals(answer);
 
             if (isCorrectAnswer) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result[i] + "'."
+                System.out.println(
+                        "'" + answer + "' is wrong answer ;(. Correct answer was '" + gameContent[1][i] + "'."
                         + "\nLet's try again, "  + playerName + "!");
                 break;
             }
 
-            if (i == 2) {
-                System.out.println("Congratulations, " + playerName + "!");
-            }
+            System.out.println("Congratulations, " + playerName + "!");
         }
     }
 }

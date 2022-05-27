@@ -1,35 +1,33 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class PrimeGame {
+    static final String TASK_MESSAGE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    static final int UPPER_RANDOM_RANGE = 33;
+    static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
     public static void playGame() {
-        String taskMessage = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final int roundsCount = 3;
-        String[] question = new String[roundsCount];
-        String[] result = new String[roundsCount];
+        final int roundsCount = Engine.getRoundsCount();
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
 
         for (var i = 0; i < roundsCount; i++) {
-            final int upperRandomRange = 33;
-            int number = Engine.generateRandomInt(upperRandomRange);
-            number = number == 0 ? 1 : number;
+            int randomNumber = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
+            randomNumber = randomNumber == 0 ? 1 : randomNumber;
 
-            boolean isPrime = true;
-            int sqrtOfNumber = (int) Math.sqrt(number);
-
-            if (number == 1) {
-                isPrime = false;
-            } else {
-                int j = 2;
-                while (isPrime & j <= sqrtOfNumber) {
-                    isPrime = number % j != 0;
-                    j++;
-                }
-            }
-
-            question[i] = String.valueOf(number);
-            result[i] = isPrime ? "yes" : "no";
+            gameContent[0][i] = String.valueOf(randomNumber);
+            gameContent[1][i] = isPrime(randomNumber) ? "yes" : "no";
         }
-        Engine.openGame(taskMessage, question, result);
+        Engine.openGame(TASK_MESSAGE, gameContent);
+    }
+
+    public static boolean isPrime(int number) {
+        int sqrtOfNumber = (int) Math.sqrt(number);
+        for (var i = 2; i <= sqrtOfNumber; i++) {
+            if (number == 1 || number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
