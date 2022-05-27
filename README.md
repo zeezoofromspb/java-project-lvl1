@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/zeezoofromspb/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/zeezoofromspb/java-project-lvl1/actions)
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/5388bf94d64a910840c7/maintainability)](https://codeclimate.com/github/zeezoofromspb/java-project-lvl1/maintainability)
 [![hexlet-build](https://github.com/zeezoofromspb/java-project-lvl1/actions/workflows/hexlet-build.yml/badge.svg)](https://github.com/zeezoofromspb/java-project-lvl1/actions/workflows/hexlet-build.yml)
 
 1 - Greet - https://asciinema.org/a/496671
