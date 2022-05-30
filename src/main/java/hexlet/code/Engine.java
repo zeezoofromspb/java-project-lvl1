@@ -1,19 +1,28 @@
 package hexlet.code;
 
-public class Engine {
-    private static final int ROUNDSCOUNT = 3;
+import java.util.Scanner;
 
-    public static int getRoundsCount() {
-        return ROUNDSCOUNT;
-    }
+public class Engine {
+    public static final int ROUNDS_COUNT = 3;
+
     public static void openGame(String taskMessage, String[][] gameContent) {
-        String playerName = Utils.getName();
+        System.out.print("""
+
+                Welcome to the Brain Games!
+                May I have your name?\s""");
+
+        Scanner sc = new Scanner(System.in);
+        String playerName =  sc.nextLine();
+
+        System.out.println("Hello, " + playerName + "!");
+
         System.out.println(taskMessage);
-        for (var i = 0; i < ROUNDSCOUNT; i++) {
+        for (var i = 0; i < ROUNDS_COUNT; i++) {
             System.out.print("Question: " + gameContent[0][i]
                     + "\nYour answer: ");
 
-            String answer = Utils.getInput();
+            sc = new Scanner(System.in);
+            String answer =  sc.nextLine();
 
             boolean isCorrectAnswer = gameContent[1][i].equals(answer);
 
@@ -23,10 +32,9 @@ public class Engine {
                 System.out.println(
                         "'" + answer + "' is wrong answer ;(. Correct answer was '" + gameContent[1][i] + "'."
                         + "\nLet's try again, "  + playerName + "!");
-                break;
+                return;
             }
-
-            System.out.println("Congratulations, " + playerName + "!");
         }
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }

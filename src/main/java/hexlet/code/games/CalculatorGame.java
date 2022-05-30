@@ -11,10 +11,9 @@ public class CalculatorGame {
 
     public static void playGame() {
 
-        final int roundsCount = Engine.getRoundsCount();
-        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][Engine.ROUNDS_COUNT];
 
-        for (var i = 0; i < roundsCount; i++) {
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
 
             int randomNumber1 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
             int randomNumber2 = Utils.generateRandomInt(UPPER_RANDOM_RANGE);

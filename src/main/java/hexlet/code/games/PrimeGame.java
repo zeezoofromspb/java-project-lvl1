@@ -8,11 +8,10 @@ public class PrimeGame {
     static final int UPPER_RANDOM_RANGE = 33;
     static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
     public static void playGame() {
-        final int roundsCount = Engine.getRoundsCount();
-        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][roundsCount];
+        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][Engine.ROUNDS_COUNT];
 
-        for (var i = 0; i < roundsCount; i++) {
-            int randomNumber = Utils.generateRandomNoZeroInt(UPPER_RANDOM_RANGE);
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            int randomNumber = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
 
             gameContent[0][i] = String.valueOf(randomNumber);
             gameContent[1][i] = isPrime(randomNumber) ? "yes" : "no";
@@ -21,12 +20,15 @@ public class PrimeGame {
     }
 
     public static boolean isPrime(int number) {
+        if (number == 0 || number == 1) {
+            return false;
+        }
         int sqrtOfNumber = (int) Math.sqrt(number);
         for (var i = 2; i <= sqrtOfNumber; i++) {
             if (number % i == 0) {
                 return false;
             }
         }
-        return number != 1;
+        return true;
     }
 }

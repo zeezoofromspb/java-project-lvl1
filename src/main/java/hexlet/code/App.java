@@ -6,6 +6,8 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.games.PrimeGame;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         System.out.print("""
@@ -18,10 +20,10 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
-        makeSelection();
-    }
-    public static void makeSelection() {
-        String choice = Utils.getInput();
+
+        Scanner sc = new Scanner(System.in);
+        String choice =  sc.nextLine();
+
         switch (choice) {
             case "1" -> Cli.getName();
             case "2" -> EvenGame.playGame();
@@ -30,10 +32,7 @@ public class App {
             case "5" -> ProgressionGame.playGame();
             case "6" -> PrimeGame.playGame();
             case "0" -> System.exit(0);
-            default -> {
-                System.out.print("Incorrect input, please try again: ");
-                makeSelection();
-            }
+            default -> throw new IllegalArgumentException("Unknown choice state: " + choice + "!");
         }
     }
 }
