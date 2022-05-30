@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS_COUNT = 3;
-
     public static void openGame(String taskMessage, String[][] gameContent) {
         System.out.print("""
 
@@ -15,8 +14,8 @@ public class Engine {
         String playerName =  sc.nextLine();
 
         System.out.println("Hello, " + playerName + "!");
-
         System.out.println(taskMessage);
+
         for (var i = 0; i < ROUNDS_COUNT; i++) {
             System.out.print("Question: " + gameContent[0][i]
                     + "\nYour answer: ");

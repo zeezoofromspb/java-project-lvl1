@@ -24,9 +24,9 @@ public class ProgressionGame {
             gameContent[0][i] = String.join(" ", progression);
             gameContent[1][i] = hiddenNumber;
         }
-
         Engine.openGame(TASK_MESSAGE, gameContent);
     }
+
     public static String[] generateProgression(int progressionLength, int progressionStart, int progressionStep) {
         String[] progression = new String[progressionLength];
         for (var i = 0; i < progressionLength; i++) {
