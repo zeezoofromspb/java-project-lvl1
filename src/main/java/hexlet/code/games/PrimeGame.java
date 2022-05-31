@@ -20,7 +20,7 @@ public class PrimeGame {
     }
 
     public static boolean isPrime(int number) {
-        if (number == 0 || number == 1) {
+        if (number < 2) {
             return false;
         }
         int sqrtOfNumber = (int) Math.sqrt(number);

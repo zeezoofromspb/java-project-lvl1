@@ -20,7 +20,6 @@ public class Engine {
             System.out.print("Question: " + gameContent[0][i]
                     + "\nYour answer: ");
 
-            sc = new Scanner(System.in);
             String answer =  sc.nextLine();
 
             boolean isCorrectAnswer = gameContent[1][i].equals(answer);
