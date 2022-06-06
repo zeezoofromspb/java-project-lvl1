@@ -17,18 +17,18 @@ public class Engine {
         System.out.println(taskMessage);
 
         for (var i = 0; i < ROUNDS_COUNT; i++) {
-            System.out.print("Question: " + gameContent[0][i]
+            System.out.print("Question: " + gameContent[i][0]
                     + "\nYour answer: ");
 
             String answer =  sc.nextLine();
 
-            boolean isCorrectAnswer = gameContent[1][i].equals(answer);
+            boolean isCorrectAnswer = gameContent[i][1].equals(answer);
 
             if (isCorrectAnswer) {
                 System.out.println("Correct!");
             } else {
                 System.out.println(
-                        "'" + answer + "' is wrong answer ;(. Correct answer was '" + gameContent[1][i] + "'."
+                        "'" + answer + "' is wrong answer ;(. Correct answer was '" + gameContent[i][1] + "'."
                         + "\nLet's try again, "  + playerName + "!");
                 return;
             }

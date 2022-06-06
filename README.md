@@ -1,3 +1,9 @@
+This is the first project for Hexlet students.
+You can choose one of provided games. You have to win 3 times to complete the challenge.
+Please, be smart and concentrated!
+
+Asciinema (video) examples of game process can be found below.
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/zeezoofromspb/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/zeezoofromspb/java-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5388bf94d64a910840c7/maintainability)](https://codeclimate.com/github/zeezoofromspb/java-project-lvl1/maintainability)

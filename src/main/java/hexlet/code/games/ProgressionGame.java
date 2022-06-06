@@ -8,7 +8,7 @@ public class ProgressionGame {
     static final int UPPER_RANDOM_RANGE = 33;
     static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
     public static void playGame() {
-        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][Engine.ROUNDS_COUNT];
+        String[][] gameContent = new String[Engine.ROUNDS_COUNT][GAME_CONTENT_VARIABLES_COUNT];
 
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int progressionStart = Utils.generateRandomInt(UPPER_RANDOM_RANGE);
@@ -21,8 +21,8 @@ public class ProgressionGame {
             String hiddenNumber = progression[hiddenNumberIndex];
             progression[hiddenNumberIndex] = "..";
 
-            gameContent[0][i] = String.join(" ", progression);
-            gameContent[1][i] = hiddenNumber;
+            gameContent[i][0] = String.join(" ", progression);
+            gameContent[i][1] = hiddenNumber;
         }
         Engine.openGame(TASK_MESSAGE, gameContent);
     }

@@ -9,7 +9,7 @@ public class CalculatorGame {
     static final int GAME_CONTENT_VARIABLES_COUNT = 2; //0 - Questions, 1 - RightAnswers
     static final String[] MATH_OPERATORS = new String[]{"+", "-", "*"};
     public static void playGame() {
-        String[][] gameContent = new String[GAME_CONTENT_VARIABLES_COUNT][Engine.ROUNDS_COUNT];
+        String[][] gameContent = new String[Engine.ROUNDS_COUNT][GAME_CONTENT_VARIABLES_COUNT];
 
         for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
 
