@@ -20,9 +20,9 @@ public class CalculatorGame {
             int mathOperatorIndex = Utils.generateRandomInt(mathOperatorIndexUpperRange);
             var randomMathOperator = MATH_OPERATORS[mathOperatorIndex];
 
-            gameContent[0][i] = randomNumber1 + " " + randomMathOperator + " " + randomNumber2;
+            gameContent[i][0] = randomNumber1 + " " + randomMathOperator + " " + randomNumber2;
 
-            gameContent[1][i] = switch (randomMathOperator) {
+            gameContent[i][1] = switch (randomMathOperator) {
                 case "+" -> Integer.toString(randomNumber1 + randomNumber2);
                 case "-" -> Integer.toString(randomNumber1 - randomNumber2);
                 case "*" -> Integer.toString(randomNumber1 * randomNumber2);
